@@ -88,7 +88,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showResult(hr+"<h1><b><font color=%22386E38%22>Установщик HEN успешно инициализирован.</font></b></h1><h3><b><font color=%22000000%22><span style='color:#000000;'>Теперь вы можете запустить установщик HEN!</span></b></h3>");
+			showResult(hr+"<h1><b><font color=%22386E38%22>HEN installer initialized successfully.</font></b></h1><h3><b><font color=%22000000%22><span style='color:#000000;'>You can now launch HEN installer!</span></b></h3>");
 			enable_trigger();
 		}
 		else
@@ -104,7 +104,7 @@ function initROP(init)
 	catch(e)
 	{
 		debug=true;
-		logAdd(br+"Инициализация HEN Enabler не удалась, так как во время выполнения возникло следующее исключение:"+br+e+" at : "+e.lineNumber);
+		logAdd(br+"HEN Enabler initialization failed because the following exception was thrown during execution:"+br+e+" at : "+e.lineNumber);
 		debug=false;
 	}
 }
@@ -112,23 +112,23 @@ function initROP(init)
 function triggerX()
 {
 		clearLogEntry();
-		showResult(hr+"<h2><b><span style='color:#000000;'>Установка HEN...</span></b></h2>");
+		showResult(hr+"<h2><b><span style='color:#000000;'>Installing HEN...</span></b></h2>");
 		disable_all();
 		setTimeout(trigger,1000,jump_1_addr);
-		setTimeout(rop_exit_hen,5000,hr+"<h1><b><font color=%22386E38%22>HEN установился успешно</font></b></h1>","<h1><b><font color='red'>Неудачная установка HEN! Перезагрузите PS3 и повторите попытку!</font></b></h1>");
+		setTimeout(rop_exit_hen,5000,hr+"<h1><b><font color=%22386E38%22>HEN is successfully installed</font></b></h1>","<h1><b><font color='red'>HEN Failure! Restart PS3 and retry!</font></b></h1>");
 		cleanGUI();
 }
 </script>
 </head>
 	<body id="bodyId" style="background-color:#FFD097" onload="javascript:downloadhen()">
 	<div id="headerId" style="color:#CC2010">
-	<h1>Установщик PS3 HEN</h1>
+	<h1>Установщик PS3HEN</h1>
 	<span style="color:#000000">Большое спасибо xerpi за перенос эксплойта утечки памяти на ps3, zecoxao & Joonie за их раннюю и возобновленную поддержку, mysis за документацию vsh/lv2, SSL, за его регулярные и ценные советы, kakaroto за инструменты PS3 IDA, naherwert за scetool, Rebug Team за создание/обновление единственной CFW, подходящей для разработки этого эксплоита, и команде Cobra, которая поделилась своим исходным кодом CobraUSB, команде psdevwiki и конечно же, STLcardsWS за его многолетний вклад и постоянную поддержку.<br>Мы также хотим поблагодарить всех хакеров/разработчиков сообщества ps3, прошлых и настоящих, которые прямо или косвенно помогли нам создать этот проект, вы знаете, кто вы ...</span><hr>
 	<h3>Поддерживаются: CEX 4.84/4.85/4.86/4.87 Hybrid Firmware</h3>
 	<h2>ВНИМАНИЕ:<br>ВЫ ДОЛЖНЫ ВЫКЛЮЧИТЬ ПОДТВЕРЖДЕНИЕ ЗАКРЫТИЯ БРАУЗЕРА ИЛИ УСТАНОВЩИК ПОТРЕРПИТ НЕУДАЧУ<br>Некоторым пользователям может быть лучше использовать альтернативный метод.</font></h2>
-	<span style="color:#0055AA"><h3>ИНФОРМАЦИЯ: если HEN уже установлен, он будет действовать как активатор</font></h3><br>
+	<span style="color:#0055AA"><h3>ИНФОРМАЦИЯ: когда HEN установвится, он будет действовать как активатор</font></h3><br>
 	<hr></div>
-	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Инициализировать установщик HEN</button> | Автозакрытие браузера <input type="checkbox" id="auto_close" name="aclose" checked="checked" onclick="autoclose();"/><span id="dex_txt" style="visibility:hidden"> | DEX режим<input type="checkbox" id="dex" name="DEX" disabled="" onclick="dex();"/></span></p>
+	<p><button id="btnROP" type="button" onclick="initROP(true);" autofocus>Инициализировать установщик HEN</button> | Автозакрытие браузера <input type="checkbox" id="auto_close" name="aclose" checked="checked" onclick="autoclose();"/><span id="dex_txt" style="visibility:hidden"> | Режим DEX<input type="checkbox" id="dex" name="DEX" disabled="" onclick="dex();"/></span></p>
 	<p><button id="btnTrigger" disabled="" type="button" onclick="triggerX();">Установить HEN</button><span id="reset" style="visibility:hidden"> | <button id="btnReset" type="button" onclick="disable_trigger();">Сброс</button></span></p>
 	<div id="result" style="color:#CC2010"></div><br>
 	<div id="log"></div>

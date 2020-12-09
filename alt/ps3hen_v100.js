@@ -137,9 +137,9 @@ var gadget_mod14_addr=0;
 var gadget_mod15_addr=0;
 var gadget_mod16_addr=0;
 var xtra_data;var stack_frame;var jump_2;var jump_1;var xtra_data_addr;var stack_frame_addr;var jump_2_addr;var jump_1_addr;
-var fail_msg_frag=hr+"<h1><b>Инициализация эксплойта не удалась!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Обновить эту страницу</a> и попробуйте еще раз...</span></b></h2>";
-var progress_msg_frag1=hr+"<h1><b>Инициализация эксплойта..."+br+"<span style='color:#000000;'>Прогресс: ";
-var progress_msg_frag2='%, пожалуйста подождите...</span></b></h1>';
+var fail_msg_frag=hr+"<h1><b>Exploit Initialization FAILED!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Refresh this page</a> & try again...</span></b></h2>";
+var progress_msg_frag1=hr+"<h1><b>Exploit Initialization..."+br+"<span style='color:#000000;'>Progress: ";
+var progress_msg_frag2='%, please wait...</span></b></h1>';
 
 
 //DEX 4.81
@@ -655,7 +655,7 @@ function clearResultEntry()
 }
 function writeEnvInfo()
 {
-	setInnerHTML(document.getElementById('footer'),hr+"<h3>Информация о системном браузере PS3:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
+	setInnerHTML(document.getElementById('footer'),hr+"<h3>PS3 System Browser Info:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
 }
 
 String.prototype.setCharAt = function(index,chr)
@@ -1727,7 +1727,7 @@ function dex()
 			//loadcex_485();
 			//disable_trigger();
 			break;
-			
+
 		case "4.86":
 			//if(document.getElementById('dex').checked===true){loaddex_486();}//alert("calling loaddex_486");
 			//else {loadcex_486();}
@@ -2083,8 +2083,8 @@ function ps3chk(){
 	var ua = navigator.userAgent;
 	var uaStringCheck = ua.substring(ua.indexOf("5.0 (") + 5, ua.indexOf(") Apple") - 7);
 	var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-	var msgHFW = "ВНИМАНИЕ!\n\nВаша версия прошивки требует 4.84/4.85/4.86/4.87 HFW (Hybrid Firmware) для установки, содержащая используемые модули.";
-	var msgCongrats = "Поздравляем! Мы обнаружили, что ваша PlayStation 3 работает с прошивкой " + fwVersion + ", совместимой с ps3hen! Наслаждайтесь!";
+	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.84/4.85/4.86/4.87 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
+	var msgCongrats = "Congratulations! We've detected your PlayStation 3 is running FW " + fwVersion + ", which is compatible with ps3hen! Enjoy!";
 	switch (uaStringCheck) {
 		case "PLAYSTATION":
 			switch (fwVersion) {
@@ -2099,13 +2099,13 @@ function ps3chk(){
 //					initDEX();
 					loadcex_485();
 					break;
-					
+
 				case fwCompat[28]:
 					//alert(msgHFW);
 //					initDEX();
 					loadcex_486();
 					break;
-					
+									
 				case fwCompat[29]:
 					//alert(msgHFW);
 //					initDEX();
@@ -2120,7 +2120,7 @@ function ps3chk(){
 			break;
 		
 		default:
-			alert('Вы не пользуетесь системой PlayStation! Все функции отключены');
+			alert('You are not on a PlayStation System! All features have been disabled');
 			disable_all();
 			break;
 	}
