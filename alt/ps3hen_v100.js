@@ -9,7 +9,7 @@ var explore_plugin_fsize=0x18CD85;
 
 var explore_pluginrco_usb='/explore_plugin_full.rco';
 var explore_pluginrco_blind='/dev_blind/vsh/resource/explore_plugin_full.rco';
-var explore_pluginrco_fsize=0x227ED0;
+var explore_pluginrco_fsize=0x38D550;
 
 var explore_pluginrco2_usb='/explore_category_game.rco';
 var explore_pluginrco2_blind='/dev_blind/vsh/resource/explore_category_game.rco';
@@ -17,7 +17,7 @@ var explore_pluginrco2_fsize=0x3A6F4;
 
 var category_game_usb='/category_game.xml';
 var category_game_blind='/dev_blind/vsh/resource/explore/xmb/category_game.xml';
-var category_game_fsize=0x8F77;
+var category_game_fsize=0xE8F9;
 
 var videoplayer_plugin_usb='/videoplayer_plugin.sprx';
 var videoplayer_plugin_blind='/dev_blind/vsh/module/videoplayer_plugin.sprx';
@@ -137,9 +137,9 @@ var gadget_mod14_addr=0;
 var gadget_mod15_addr=0;
 var gadget_mod16_addr=0;
 var xtra_data;var stack_frame;var jump_2;var jump_1;var xtra_data_addr;var stack_frame_addr;var jump_2_addr;var jump_1_addr;
-var fail_msg_frag=hr+"<h1><b>Exploit Initialization FAILED!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Refresh this page</a> & try again...</span></b></h2>";
-var progress_msg_frag1=hr+"<h1><b>Exploit Initialization..."+br+"<span style='color:#000000;'>Progress: ";
-var progress_msg_frag2='%, please wait...</span></b></h1>';
+var fail_msg_frag=hr+"<h1><b>Инициализация эксплойта не удалась!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Обновить эту страницу</a> и попробуйте еще раз...</span></b></h2>";
+var progress_msg_frag1=hr+"<h1><b>Инициализация эксплойта..."+br+"<span style='color:#000000;'>Прогресс: ";
+var progress_msg_frag2='%, пожалуйста подождите...</span></b></h1>';
 
 
 //DEX 4.81
@@ -531,10 +531,10 @@ var toc_addr_486 = 0x6F5558;
 var default_vsh_pub_toc_486=0x6ED5AC;
 var vsh_opd_patch_486=0x96D5C;
 var vsh_opd_addr_486=0x6EBB70;
-var vsh_toc_addr_screenshot_486=0x72067C;
-var vsh_ps3hen_key_toc_486=0x70786C;
+var vsh_toc_addr_screenshot_486=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_486=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_486=0x6DA3D0;
-var toc_entry2_addr_486=0x725B38;//idps
+var toc_entry2_addr_486=0x725CE8;//idps Updated From 4.83/4.84/4.85
 var toc_entry3_addr_486=0x6DA3C8;
 var toc_entry4_addr_486=0x740000;
 var toc_entry5_addr_486=0x6EB6C8;
@@ -549,7 +549,7 @@ var gadget7_addr_486=0x01FFD0;//memset
 var gadget8_addr_486=0x020000;//memcpy
 var gadget9_addr_486=0x029B08;
 var gadget10_addr_486=0x62E024;
-var gadget11_addr_486=0x59A4B0;
+var gadget11_addr_486=0x59A4B0;// sprintf
 var gadget12_addr_486=0x0C864C;
 var gadget13_addr_486=0x48E5A8;//free
 var gadget14_addr_486=0x48C7A0;
@@ -563,7 +563,7 @@ var gadget_mod4c_addr_486=0x054AF0; //load r5 word
 var gadget_mod5_addr_486=0x4238DC;
 var gadget_mod6_addr_486=0x020C00;
 var gadget_mod7_addr_486=0x01A6AC;
-var gadget_mod8_addr_486=0x2BACB8;
+var gadget_mod8_addr_486=0x2BACB8;// graceful exit
 var gadget_mod9_addr_486=0x010B20;
 var gadget_mod10_addr_486=0x1C5794;
 var gadget_mod11_addr_486=0x18B144;
@@ -578,10 +578,10 @@ var toc_addr_487 = 0x6F5558;
 var default_vsh_pub_toc_487=0x6ED5AC;
 var vsh_opd_patch_487=0x96D5C;
 var vsh_opd_addr_487=0x6EBB70;
-var vsh_toc_addr_screenshot_487=0x72067C;
-var vsh_ps3hen_key_toc_487=0x70786C;
+var vsh_toc_addr_screenshot_487=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_487=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_487=0x6DA3D0;
-var toc_entry2_addr_487=0x725B38;//idps
+var toc_entry2_addr_487=0x725CE8;//idps Updated From 4.83/4.84/4.85
 var toc_entry3_addr_487=0x6DA3C8;
 var toc_entry4_addr_487=0x740000;
 var toc_entry5_addr_487=0x6EB6C8;
@@ -596,7 +596,7 @@ var gadget7_addr_487=0x01FFD0;//memset
 var gadget8_addr_487=0x020000;//memcpy
 var gadget9_addr_487=0x029B08;
 var gadget10_addr_487=0x62E024;
-var gadget11_addr_487=0x59A4B0;
+var gadget11_addr_487=0x59A4B0;// sprintf
 var gadget12_addr_487=0x0C864C;
 var gadget13_addr_487=0x48E5A8;//free
 var gadget14_addr_487=0x48C7A0;
@@ -610,7 +610,7 @@ var gadget_mod4c_addr_487=0x054AF0; //load r5 word
 var gadget_mod5_addr_487=0x4238DC;
 var gadget_mod6_addr_487=0x020C00;
 var gadget_mod7_addr_487=0x01A6AC;
-var gadget_mod8_addr_487=0x2BACB8;
+var gadget_mod8_addr_487=0x2BACB8;// graceful exit
 var gadget_mod9_addr_487=0x010B20;
 var gadget_mod10_addr_487=0x1C5794;
 var gadget_mod11_addr_487=0x18B144;
@@ -655,7 +655,7 @@ function clearResultEntry()
 }
 function writeEnvInfo()
 {
-	setInnerHTML(document.getElementById('footer'),hr+"<h3>PS3 System Browser Info:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
+	setInnerHTML(document.getElementById('footer'),hr+"<h3>Информация о системном браузере PS3:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
 }
 
 String.prototype.setCharAt = function(index,chr)
@@ -1590,7 +1590,6 @@ function loadcex_485()
 	gadget_mod15_addr=gadget_mod15_addr_485;
 	gadget_mod16_addr=gadget_mod16_addr_485;
 }
-
 function loadcex_486()
 {
 	toc_addr = toc_addr_486;
@@ -1639,7 +1638,6 @@ function loadcex_486()
 	gadget_mod15_addr=gadget_mod15_addr_486;
 	gadget_mod16_addr=gadget_mod16_addr_486;
 }
-
 function loadcex_487()
 {
 	toc_addr = toc_addr_487;
@@ -1729,11 +1727,18 @@ function dex()
 			//loadcex_485();
 			//disable_trigger();
 			break;
-
+			
 		case "4.86":
-			//if(document.getElementById('dex').checked===true){loaddex_485();}//alert("calling loaddex_485");
-			//else {loadcex_485();}
-			//loadcex_485();
+			//if(document.getElementById('dex').checked===true){loaddex_486();}//alert("calling loaddex_486");
+			//else {loadcex_486();}
+			//loadcex_486();
+			//disable_trigger();
+			break;
+			
+		case "4.87":
+			//if(document.getElementById('dex').checked===true){loaddex_487();}//alert("calling loaddex_487");
+			//else {loadcex_487();}
+			//loadcex_487();
 			//disable_trigger();
 			break;
 			
@@ -2078,17 +2083,11 @@ function ps3chk(){
 	var ua = navigator.userAgent;
 	var uaStringCheck = ua.substring(ua.indexOf("5.0 (") + 5, ua.indexOf(") Apple") - 7);
 	var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.84/4.85/4.86 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
-	var msgCongrats = "Congratulations! We've detected your PlayStation 3 is running FW " + fwVersion + ", which is compatible with ps3hen! Enjoy!";
+	var msgHFW = "ВНИМАНИЕ!\n\nВаша версия прошивки требует 4.84/4.85/4.86/4.87 HFW (Hybrid Firmware) для установки, содержащая используемые модули.";
+	var msgCongrats = "Поздравляем! Мы обнаружили, что ваша PlayStation 3 работает с прошивкой " + fwVersion + ", совместимой с ps3hen! Наслаждайтесь!";
 	switch (uaStringCheck) {
 		case "PLAYSTATION":
 			switch (fwVersion) {
-				case fwCompat[24]:
-					//alert(msgHFW);
-//					initDEX();
-					loadcex_482();
-					break;
-					
 				case fwCompat[26]:
 					//alert(msgHFW);
 //					initDEX();
@@ -2100,13 +2099,13 @@ function ps3chk(){
 //					initDEX();
 					loadcex_485();
 					break;
-
+					
 				case fwCompat[28]:
 					//alert(msgHFW);
 //					initDEX();
 					loadcex_486();
 					break;
-									
+					
 				case fwCompat[29]:
 					//alert(msgHFW);
 //					initDEX();
@@ -2114,14 +2113,14 @@ function ps3chk(){
 					break;
 					
 				default:
-					//alert('Your PS3 is not on FW 4.87! Your current running FW version is ' + fwVersion + ', which is not compatible with ps3hen 1.0. All features have been disabled');
+					//alert('Your PS3 is not on FW 4.84/4.85! Your current running FW version is ' + fwVersion + ', which is not compatible with ps3hen 1.0. All features have been disabled');
 					disable_all();
 					break;
 			}
 			break;
 		
 		default:
-			alert('You are not on a PlayStation System! All features have been disabled');
+			alert('Вы не пользуетесь системой PlayStation! Все функции отключены');
 			disable_all();
 			break;
 	}
