@@ -331,6 +331,10 @@ static void downloadPKG_thread2(void)
 		{
 			download_interface->DownloadURL(0,(wchar_t *) L"https://github.com/nikolaevich23/nikolaevich23.github.io/raw/master/alt/4.87/latest_rus_sign.pkg", (wchar_t *) L"/dev_hdd0");
 		}		
+	else if(val==0x323032312F30362FULL)
+		{
+			download_interface->DownloadURL(0,(wchar_t *) L"https://github.com/nikolaevich23/nikolaevich23.github.io/raw/master/alt/4.88/latest_rus_sign.pkg", (wchar_t *) L"/dev_hdd0");
+		}	
 	thread2_download_finish=1;
 }
 

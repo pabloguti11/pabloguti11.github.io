@@ -9,7 +9,7 @@ var explore_plugin_fsize=0x18CD85;
 
 var explore_pluginrco_usb='/explore_plugin_full.rco';
 var explore_pluginrco_blind='/dev_blind/vsh/resource/explore_plugin_full.rco';
-var explore_pluginrco_fsize=0x38D550;
+var explore_pluginrco_fsize=0x227ED0;
 
 var explore_pluginrco2_usb='/explore_category_game.rco';
 var explore_pluginrco2_blind='/dev_blind/vsh/resource/explore_category_game.rco';
@@ -17,7 +17,7 @@ var explore_pluginrco2_fsize=0x3A6F4;
 
 var category_game_usb='/category_game.xml';
 var category_game_blind='/dev_blind/vsh/resource/explore/xmb/category_game.xml';
-var category_game_fsize=0xE8F9;
+var category_game_fsize=0x8F77;
 
 var videoplayer_plugin_usb='/videoplayer_plugin.sprx';
 var videoplayer_plugin_blind='/dev_blind/vsh/module/videoplayer_plugin.sprx';
@@ -137,9 +137,9 @@ var gadget_mod14_addr=0;
 var gadget_mod15_addr=0;
 var gadget_mod16_addr=0;
 var xtra_data;var stack_frame;var jump_2;var jump_1;var xtra_data_addr;var stack_frame_addr;var jump_2_addr;var jump_1_addr;
-var fail_msg_frag=hr+"<h1><b>Инициализация эксплойта не удалась!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Обновить эту страницу</a> и попробуйте еще раз...</span></b></h2>";
-var progress_msg_frag1=hr+"<h1><b>Инициализация эксплойта..."+br+"<span style='color:#000000;'>Прогресс: ";
-var progress_msg_frag2='%, пожалуйста подождите...</span></b></h1>';
+var fail_msg_frag=hr+"<h1><b>Exploit Initialization FAILED!</h1><h2><span style='color:#000000;'><a href=\"javascript:window.location.reload();\">Refresh this page</a> & try again...</span></b></h2>";
+var progress_msg_frag1=hr+"<h1><b>Exploit Initialization..."+br+"<span style='color:#000000;'>Progress: ";
+var progress_msg_frag2='%, please wait...</span></b></h1>';
 
 
 //DEX 4.81
@@ -620,6 +620,53 @@ var gadget_mod14_addr_487=0x633900; //load r3 dword
 var gadget_mod15_addr_487=0x39D038; //load r3 word
 var gadget_mod16_addr_487=0x4F732C; //set toc
 
+//CEX 4.88
+var toc_addr_488 = 0x6F5558;
+var default_vsh_pub_toc_488=0x6ED5AC;
+var vsh_opd_patch_488=0x96D5C;
+var vsh_opd_addr_488=0x6EBB70;
+var vsh_toc_addr_screenshot_488=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_488=0x707A1C;// Updated From 4.83/4.84/4.85
+var toc_entry1_addr_488=0x6DA3D0;
+var toc_entry2_addr_488=0x725CE8;//idps Updated From 4.83/4.84/4.85
+var toc_entry3_addr_488=0x6DA3C8;
+var toc_entry4_addr_488=0x740000;
+var toc_entry5_addr_488=0x6EB6C8;
+var toc_entry6_addr_488=0x0;
+var gadget1_addr_488=0x097604;
+var gadget2_addr_488=0x60A0E4;
+var gadget3_addr_488=0x0D505C;
+var gadget4_addr_488=0x229838;
+var gadget5_addr_488=0x12BB1C;
+var gadget6_addr_488=0x615CDC;//malloc
+var gadget7_addr_488=0x01FFD0;//memset
+var gadget8_addr_488=0x020000;//memcpy
+var gadget9_addr_488=0x029B08;
+var gadget10_addr_488=0x62E024;
+var gadget11_addr_488=0x59A4B0;// sprintf
+var gadget12_addr_488=0x0C864C;
+var gadget13_addr_488=0x48E5A8;//free
+var gadget14_addr_488=0x48C7A0;
+var gadget15_addr_488=0x489C88;
+var gadget_mod1_addr_488=0x60EFD8;
+var gadget_mod2_addr_488=0x013B74;
+var gadget_mod3_addr_488=0x0B8E00;
+var gadget_mod4a_addr_488=0x0D9684;
+var gadget_mod4b_addr_488=0x42C778;
+var gadget_mod4c_addr_488=0x054AF0; //load r5 word
+var gadget_mod5_addr_488=0x4238DC;
+var gadget_mod6_addr_488=0x020C00;
+var gadget_mod7_addr_488=0x01A6AC;
+var gadget_mod8_addr_488=0x2BACB8;// graceful exit
+var gadget_mod9_addr_488=0x010B20;
+var gadget_mod10_addr_488=0x1C5794;
+var gadget_mod11_addr_488=0x18B144;
+var gadget_mod12_addr_488=0x6331FC; //validation gadget
+var gadget_mod13_addr_488=0x336870; //store_r3 gadget
+var gadget_mod14_addr_488=0x633900; //load r3 dword
+var gadget_mod15_addr_488=0x39D038; //load r3 word
+var gadget_mod16_addr_488=0x4F732C; //set toc
+
 function hexh2bin(hex_val)
 {
 	return String.fromCharCode(hex_val);
@@ -655,7 +702,7 @@ function clearResultEntry()
 }
 function writeEnvInfo()
 {
-	setInnerHTML(document.getElementById('footer'),hr+"<h3>Информация о системном браузере PS3:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
+	setInnerHTML(document.getElementById('footer'),hr+"<h3>PS3 System Browser Info:</h3>"+navigator.userAgent+br+navigator.appName+" (" + navigator.platform + ")"+br+new Date().toTimeString() + br);
 }
 
 String.prototype.setCharAt = function(index,chr)
@@ -1686,6 +1733,54 @@ function loadcex_487()
 	gadget_mod15_addr=gadget_mod15_addr_487;
 	gadget_mod16_addr=gadget_mod16_addr_487;
 }
+function loadcex_488()
+{
+	toc_addr = toc_addr_488;
+	vsh_opd_addr=vsh_opd_addr_488;
+	vsh_opd_patch=vsh_opd_patch_488;
+	vsh_toc_addr_screenshot=vsh_toc_addr_screenshot_488;
+	vsh_ps3hen_key_toc=vsh_ps3hen_key_toc_488;
+	default_vsh_pub_toc=default_vsh_pub_toc_488;
+	toc_entry1_addr=toc_entry1_addr_488;
+	toc_entry2_addr=toc_entry2_addr_488;
+	toc_entry3_addr=toc_entry3_addr_488;
+	toc_entry4_addr=toc_entry4_addr_488;
+	toc_entry5_addr=toc_entry5_addr_488;
+	toc_entry6_addr=toc_entry6_addr_488;
+	gadget1_addr=gadget1_addr_488;
+	gadget2_addr=gadget2_addr_488;
+	gadget3_addr=gadget3_addr_488;
+	gadget4_addr=gadget4_addr_488;
+	gadget5_addr=gadget5_addr_488;
+	gadget6_addr=gadget6_addr_488;
+	gadget7_addr=gadget7_addr_488;
+	gadget8_addr=gadget8_addr_488;
+	gadget9_addr=gadget9_addr_488;
+	gadget10_addr=gadget10_addr_488;
+	gadget11_addr=gadget11_addr_488;
+	gadget12_addr=gadget12_addr_488;
+	gadget13_addr=gadget13_addr_488;
+	gadget14_addr=gadget14_addr_488;
+	gadget15_addr=gadget15_addr_488;
+	gadget_mod1_addr=gadget_mod1_addr_488;
+	gadget_mod2_addr=gadget_mod2_addr_488;
+	gadget_mod3_addr=gadget_mod3_addr_488;
+	gadget_mod4a_addr=gadget_mod4a_addr_488;
+	gadget_mod4b_addr=gadget_mod4b_addr_488;
+	gadget_mod4c_addr=gadget_mod4c_addr_488;
+	gadget_mod5_addr=gadget_mod5_addr_488;
+	gadget_mod6_addr=gadget_mod6_addr_488;
+	gadget_mod7_addr=gadget_mod7_addr_488;
+	gadget_mod8_addr=gadget_mod8_addr_488;
+	gadget_mod9_addr=gadget_mod9_addr_488;
+	gadget_mod10_addr=gadget_mod10_addr_488;
+	gadget_mod11_addr=gadget_mod11_addr_488;
+	gadget_mod12_addr=gadget_mod12_addr_488;
+	gadget_mod13_addr=gadget_mod13_addr_488;
+	gadget_mod14_addr=gadget_mod14_addr_488;
+	gadget_mod15_addr=gadget_mod15_addr_488;
+	gadget_mod16_addr=gadget_mod16_addr_488;
+}
 /*
 function dex()
 {
@@ -1739,6 +1834,13 @@ function dex()
 			//if(document.getElementById('dex').checked===true){loaddex_487();}//alert("calling loaddex_487");
 			//else {loadcex_487();}
 			//loadcex_487();
+			//disable_trigger();
+			break;
+			
+		case "4.88":
+			//if(document.getElementById('dex').checked===true){loaddex_488();}//alert("calling loaddex_488");
+			//else {loadcex_488();}
+			//loadcex_488();
 			//disable_trigger();
 			break;
 			
@@ -2079,12 +2181,12 @@ function fill_by_16bytes(nbytes,hex_val)
 //########################## End ROP Framework functions by bguerville(under development) #########################
 function ps3chk(){
 
-	var fwCompat = ["4.00","4.10","4.11","4.20","4.21","4.25","4.30","4.31","4.40","4.41","4.45","4.46","4.50","4.53","4.55","4.60","4.65","4.66","4.70","4.75","4.76","4.78","4.80","4.81","4.82","4.83","4.84","4.85","4.86","4.87"];
+	var fwCompat = ["4.00","4.10","4.11","4.20","4.21","4.25","4.30","4.31","4.40","4.41","4.45","4.46","4.50","4.53","4.55","4.60","4.65","4.66","4.70","4.75","4.76","4.78","4.80","4.81","4.82","4.83","4.84","4.85","4.86","4.87","4.88"];
 	var ua = navigator.userAgent;
 	var uaStringCheck = ua.substring(ua.indexOf("5.0 (") + 5, ua.indexOf(") Apple") - 7);
 	var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-	var msgHFW = "ВНИМАНИЕ!\n\nВаша версия прошивки требует 4.84/4.85/4.86/4.87 HFW (Hybrid Firmware) для установки, содержащая используемые модули.";
-	var msgCongrats = "Поздравляем! Мы обнаружили, что ваша PlayStation 3 работает с прошивкой " + fwVersion + ", совместимой с ps3hen! Наслаждайтесь!";
+	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.84 - 4.88 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
+	var msgCongrats = "Congratulations! We've detected your PlayStation 3 is running FW " + fwVersion + ", which is compatible with ps3hen! Enjoy!";
 	switch (uaStringCheck) {
 		case "PLAYSTATION":
 			switch (fwVersion) {
@@ -2112,15 +2214,21 @@ function ps3chk(){
 					loadcex_487();
 					break;
 					
+				case fwCompat[30]:
+					//alert(msgHFW);
+//					initDEX();
+					loadcex_488();
+					break;
+					
 				default:
-					//alert('Your PS3 is not on FW 4.84/4.85! Your current running FW version is ' + fwVersion + ', which is not compatible with ps3hen 1.0. All features have been disabled');
+					//alert('Your PS3 is not on FW 4.84 - 4.88! Your current running FW version is ' + fwVersion + ', which is not compatible with ps3hen 1.0. All features have been disabled');
 					disable_all();
 					break;
 			}
 			break;
 		
 		default:
-			alert('Вы не пользуетесь системой PlayStation! Все функции отключены');
+			alert('You are not on a PlayStation System! All features have been disabled');
 			disable_all();
 			break;
 	}
