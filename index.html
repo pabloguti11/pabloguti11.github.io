@@ -314,7 +314,7 @@ function checkMemory(address, size, len)
 function trigger(exploit_addr){
 	if(document.getElementById('trigger')){document.getElementById("trigger").innerHTML = -parseFloat("NAN(ffffe" + exploit_addr.toString(16) + ")");}
 	if (document.getElementById('trigger').innerHTML.indexOf("NaN") != -1) {
-		document.write("<html><h1><span style='color:red'>You must install Hybrid Firmware (HFW) before installing HEN!</h1></span></html>");
+		document.write("<html><h1><span style='color:red'>You must install Hybrid Firmware (HFW) before installing HEN! Failure executing exploit.</h1></span></html>");
 		return;
 	}
 }
